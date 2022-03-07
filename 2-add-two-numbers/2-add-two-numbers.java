@@ -16,7 +16,7 @@ class Solution {
         ListNode dupHead = new ListNode();
         ListNode node = dupHead ; 
         
-        while(l1 != null || l2 != null){
+        while(l1 != null || l2 != null || carry ==1 ){
             sum = 0 ;
             if(l1!= null) {
                sum += l1.val ;
@@ -36,7 +36,7 @@ class Solution {
             node = node.next ;
         }
         
-        if(carry > 0) node.next = new ListNode(carry);
+        // if(carry > 0) node.next = new ListNode(carry);
         
         dupHead = dupHead.next ;
         return  dupHead;
