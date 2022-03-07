@@ -50,7 +50,7 @@ class Solution {
             tail = tail.next ;
             
         }
-        dupHead = dupHead.next ;
-        return dupHead ;
+        // dupHead = dupHead.next ;
+        return dupHead.next ;
     }
 }
