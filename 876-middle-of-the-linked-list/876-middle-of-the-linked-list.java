@@ -22,4 +22,28 @@ class Solution {
         
         return slow ;
     }
+    
+    /* //brute force
+    class Solution {
+    public ListNode middleNode(ListNode head) {
+        if(head == null) return head ;
+       
+        int length = 0;  
+        ListNode node = head ;
+        
+        while(node != null){
+            node = node.next ;
+            length++ ;
+        }
+        System.out.println(length);
+        
+        int mid = length / 2 ;
+        
+        for(int i = 0 ; i < mid ; i++){
+            head = head.next ;
+        }
+        return head ;
+    }
+ }
+    */
 }
