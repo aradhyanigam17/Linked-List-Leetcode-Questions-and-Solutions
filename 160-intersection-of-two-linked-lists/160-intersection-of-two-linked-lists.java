@@ -11,6 +11,39 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        
+        ListNode dupHead1 = headA ;
+        
+        ListNode dupHead2 = headB ;
+        
+        while(dupHead1 != null || dupHead2 != null){
+            
+                if(dupHead1 == null){
+                dupHead1 = headB ;
+                }
+                if(dupHead2 == null){
+                    dupHead2 = headA ;
+                }
+            
+            if(dupHead1 == dupHead2) return dupHead1 ;
+            dupHead1 = dupHead1.next ;
+            dupHead2 = dupHead2.next ;
+            
+            
+        }
+        
+        
+        return null  ;
+
+    }
+}
+
+/*
+//optimal 1
+// Tc - O(N)+o(M)+O(M-N)~+ O(2M)
+// Sc -O(1)
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
        
         int len1  = 0 ;
         ListNode l1 = headA ;
@@ -52,7 +85,13 @@ public class Solution {
     }
 }
 
+
+*/
 /*
+
+// brute force
+//tc - O(M+N)
+//sc - O(1)
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         
