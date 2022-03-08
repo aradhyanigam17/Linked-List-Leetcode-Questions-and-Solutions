@@ -1,3 +1,4 @@
+[Discussion Post (created on 8/2/2022 at 15:11)](https://leetcode.com/problems/linked-list-cycle/discuss/1830641/0-ms-faster-than-100.00-of-Java-online-submissions)  
 <h2>141. Linked List Cycle</h2><h3>Easy</h3><hr><div><p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
 
 <p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the&nbsp;<code>next</code>&nbsp;pointer. Internally, <code>pos</code>&nbsp;is used to denote the index of the node that&nbsp;tail's&nbsp;<code>next</code>&nbsp;pointer is connected to.&nbsp;<strong>Note that&nbsp;<code>pos</code>&nbsp;is not passed as a parameter</strong>.</p>
