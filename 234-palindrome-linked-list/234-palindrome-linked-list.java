@@ -10,53 +10,24 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-      ArrayList<Integer> list = new ArrayList<>();
-        
-        ListNode dupHead = head ;
-        
-        while(dupHead != null){
-            list.add(dupHead.val);
-            dupHead = dupHead.next ;
-        }
-        
-        int i = 0 , j = list.size() - 1 ;
-        
-        while(i < j ){
-            
-            if(list.get(i) != list.get(j)) return false ;
-            i++ ;
-            j-- ;
-            
-            
-        }
-        return true; 
-  
-        
+        ListNode slow = head;
+	ListNode fast = head;
+	ListNode prev = null;
+	while (fast != null && fast.next != null) {
+		fast = fast.next.next;
+		ListNode temp = slow;
+		slow = slow.next;
+		temp.next = prev;
+		prev = temp;
+	}
+	//Handling for odd length linked list
+	if (fast != null) slow = slow.next;
+	while (prev != null && slow != null) {
+		if (prev.val != slow.val) return false;
+		prev = prev.next;
+		slow = slow.next;
+	}
+	return prev == null && slow == null;
+
     }
 }
-      
-/*
-  if(head == null) return false ;
-        
-        
-        ListNode prev = null;
-        ListNode dupHead = head ;
-        ListNode next = head.next ;
-        
-        while(dupHead != null){
-            dupHead.next = prev ;
-            prev = dupHead ;
-            dupHead = next;
-            if(next != null) next = next.next ;
-        }
-        
-        
-        while(prev != null && head != null){
-            if(prev.val != head.val) return false ;
-            
-            prev = prev.next ;
-            head = head.next ;
-        }
-     
-        return true ;
-*/
