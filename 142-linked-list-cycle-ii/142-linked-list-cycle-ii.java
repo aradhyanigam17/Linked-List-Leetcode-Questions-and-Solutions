@@ -11,18 +11,16 @@
  */
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        if(head == null) return head ;
+        HashSet<ListNode> set = new HashSet<>() ;
         
-        ArrayList<ListNode> list = new ArrayList<>();
         ListNode dupHead = head ;
         
         while(dupHead != null){
-            if(list.contains(dupHead)) return dupHead ;
-            else{
-                list.add(dupHead);
-                dupHead = dupHead.next ;
-            }    
+            if(set.contains(dupHead)) return dupHead ;
+            set.add(dupHead) ;
+            dupHead = dupHead.next;
         }
+        
         return null;
     }
 }
