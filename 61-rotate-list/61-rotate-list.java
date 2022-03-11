@@ -11,33 +11,37 @@
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
         
-        if(head == null || head.next == null) return head ;
-        ArrayList<Integer> list = new ArrayList<>() ;
+        if(head ==null || head.next == null) return head; 
         
-        ListNode dup = head ;
+        if(k == 0 ) return head;
+        int len = 0 ;
         
-        while(dup != null){
-            list.add(dup.val);
-            dup = dup.next;
-        }
+        ListNode temp = head ;
         
-        k = k % list.size() ;        
-        for(int i = 0 ; i < k ; i++){
-            list.add(0,list.remove(list.size() - 1)) ;
-        }
-        
-        System.out.println(list) ;
-        
-        ListNode dupHead = new ListNode() ;
-        ListNode temp = dupHead ;
-        
-        for(int i = 0 ; i < list.size() ;i++){
-            ListNode node = new ListNode(list.get(i));
-            temp.next = node ;
+        while(temp != null){
+            len++ ;
             temp = temp.next ;
         }
-        dupHead = dupHead.next ;
-        return dupHead ;
+        k = k % len ;
+        if(k == 0 ) return head;
+        ListNode dupHead = head ;
+        for(int i = 1 ; i < len - k ;i++){
+            dupHead =dupHead.next ;
+        }
         
+        ListNode dup = dupHead.next ;
+        dupHead.next = null ;
+        ListNode dummy = dup ;
+        
+        while(dup.next != null){
+            dup =dup.next ;
+        }
+        
+        dup.next = head;
+        
+        head = dummy ;
+        
+        
+        return head ;
     }
 }
